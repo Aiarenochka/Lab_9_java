@@ -58,6 +58,7 @@
                     <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
                 </padding>
                 <TextField fx:id="inputField" promptText="Введіть значення (автор, жанр, ID тощо)" prefWidth="400"/>
+                <Button text="Search" onAction="#searching"/>
                 <Button text="Run" onAction="#runOperation"/>
                 <Button text="Refresh Table" onAction="#showAll"/>
             </HBox>

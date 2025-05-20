@@ -1,39 +1,31 @@
 package main.io;
 
-import main.model.Book;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
 
-import java.util.List;
+import java.util.Optional;
 
 public class View {
-    public void showBooks(List<Book> books) {
-        if (books == null) {
-            System.out.println("No books found.");
-        } else {
-            for (Book book : books) {
-                if (book != null) {
-                    System.out.println(book);
-                }
-            }
-        }
+    public String prompt(String msg) {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Ввід");
+        dialog.setHeaderText(msg);
+        Optional<String> result = dialog.showAndWait();
+        return result.orElse("");
     }
 
-    public void showBookDetails(Book book) {
-        System.out.println("Book details:");
-        System.out.println("  Genre: " + book.getGenre());
-        System.out.println("  Year: " + book.getYear());
+    public void showError(String msg) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK);
+        alert.showAndWait();
     }
 
-    public void showBookNotFound() {
-        System.out.println("Book not found in catalog");
-    }
-
-    public void prompt(String message) {
-        System.out.print(message);
-    }
-
-    public void showAllBooks(List<Book> books) {
-        System.out.println("All books in catalog:");
-        showBooks(books);
+    public void showInfo(String title, String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 
 }
