@@ -41,7 +41,6 @@ public class BookController {
         yearCol.setCellValueFactory(new PropertyValueFactory<>("year"));
         genreCol.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
-        // Початкові книги
         books.addAll(BookFactory.createBooks());
 
         showAll();
